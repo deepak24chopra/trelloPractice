@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get '/signup', to: "users#new"
   get '/newboard', to: "boards#new"
+  delete '/delete_list/:id', to: "boards#delete_list"
   resources :users, except: [:new]
   resources :boards, except: [:new]
   resources :list, except: [:new]

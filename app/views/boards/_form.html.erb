@@ -43,7 +43,7 @@
                                 <% end %>
                               </select>
                     <div class="col">
-                    <%= link_to "Delete List", list_path(list), method: :delete, data: {confirm: "Are you sure you want to delete this list?"}, class:"btn btn-info" -%>
+                    <%= link_to "Delete List", {controller: "boards", action: "delete_list", id: list.id}, method: :delete, data: {confirm: "Are you sure you want to delete this list?"}, class:"btn btn-info" -%>
                     </div>
                 </div>
             <% end %>

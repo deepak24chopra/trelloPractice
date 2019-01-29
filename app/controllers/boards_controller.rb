@@ -89,6 +89,10 @@ class BoardsController < ApplicationController
         redirect_to :back and return
     end
 
+    def delete_list
+        #redirect_to root_path
+    end
+
     private #--------------------------------------------------------------------
 
     def board_params
