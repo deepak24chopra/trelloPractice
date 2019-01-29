@@ -1,0 +1,12 @@
+<h2 align="center"><%= @board.title -%></h2>
+
+<div class="row">
+
+    <% @board.lists.each do |list| -%>
+        <div class="col">
+            <%= list.title -%><br />
+            <%= debug(list.tasks) -%>
+        </div>
+    <% end -%>
+
+</div>

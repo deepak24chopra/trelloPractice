@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_26_025500) do
+ActiveRecord::Schema.define(version: 2019_01_29_013713) do
 
   create_table "board_permissions", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 2019_01_26_025500) do
     t.string "title", null: false
     t.integer "board_id", null: false
     t.integer "position", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.integer "list_id", null: false
+    t.integer "board_id", null: false
+    t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

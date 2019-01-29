@@ -15,7 +15,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <% boards = find_boards %>
-        <% if boards != nil -%>
+        <% if boards.length > 0 -%>
           <% boards.each do |board| -%>
             <a class="dropdown-item" href="<%= board_path(board) -%>"><%= board.title -%></a>
           <% end -%>

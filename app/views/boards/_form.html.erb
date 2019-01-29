@@ -27,6 +27,24 @@
                 <label class="form-check-label">Production</label>
             </div>
         </div>
+    <% else-%>
+        <div class="form-group">
+            <div class="row offset-2">
+                Edit lists:
+            </div>
+            <% @board.lists.each do |list| -%>
+                <div class="row">
+                    <div class="form-check offset-2 col-sm-4">
+                        <input type="text" class="form-control" value="<%= list.title -%>">
+                    </div>
+                    Position: <select name="<%= list.title -%>_position" class="dropdown">
+                                <% for i in 0..@board.lists.length + 1 -%>
+                                    <option value="<%= i -%>" class="dropdown-item" <% if (i == list.position) %> selected="selected" <% end %> ><%= i -%></option>
+                                <% end %>
+                              </select>
+                </div>
+            <% end %>
+        </div>
     <% end -%>
     <%= f.submit(@board.new_record? ? "Create Board" : "Update Board", class: "offset-2 col-sm-3 btn btn-dark") -%>
 <% end -%>
