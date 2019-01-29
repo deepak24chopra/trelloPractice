@@ -1,0 +1,13 @@
+<h1 align="center">Login</h1>
+
+<%= form_for(:session, :html => {class: "form"}, url: login_path) do |f| -%>
+    <div class="form-group row">
+        <%= f.label :email, class: "col-sm-2 col-form-label" -%>
+        <%= f.email_field :email, class: "col-sm-10 form-control",autofocus: true, placeholder: "Enter email" -%>
+    </div>
+    <div class="form-group row">
+        <%= f.label :password, class: "col-sm-2 col-form-label" -%>
+        <%= f.password_field :password, class: "col-sm-10 form-control", placeholder: "Enter password" -%>
+    </div>
+    <%= f.submit("Login", class: "offset-2 btn btn-dark") -%>
+<% end -%>

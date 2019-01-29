@@ -1,0 +1,22 @@
+<%= render "shared/errors", obj: @user -%>
+<%= form_for(@user, :html => {class: "form"}) do |f| %>
+    <div class="form-group row">
+        <%= f.label :username, class: "col-sm-2 col-form-label" -%>
+        <%= f.text_field :username, class: "col-sm-8 form-control", placeholder: "Enter username", autofocus: true -%>
+    </div>
+    <div class="form-group row">
+        <%= f.label :email, class: "col-sm-2 col-form-label" -%>
+        <%= f.email_field :email, class: "col-sm-8 form-control", placeholder: "Enter email" -%>
+    </div>
+    <% if @user.new_record? -%>
+    <div class="form-group row">
+        <%= f.label :password, class: "col-sm-2 col-form-label" -%>
+        <%= f.password_field :password, class: "col-sm-8 form-control", placeholder: "Enter password" -%>
+    </div>
+    <div class="form-group row">
+        <%= f.label :password_again, class: "col-sm-2 col-form-label" -%>
+        <%= f.password_field :confirm_password, class: "col-sm-8 form-control", placeholder: "Enter password again" -%>
+    </div>
+    <% end -%>
+    <%= f.submit(@user.new_record? ? "Sign Up" : "Update Account", class: "offset-2 col-sm-3 btn btn-dark" ) -%>
+<% end %>
