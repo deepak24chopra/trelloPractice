@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get '/newboard', to: "boards#new"
   resources :users, except: [:new]
   resources :boards, except: [:new]
+  resources :list, except: [:new]
 
 end

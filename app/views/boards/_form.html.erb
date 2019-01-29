@@ -39,9 +39,12 @@
                     </div>
                     Position: <select name="<%= list.title -%>_position" class="dropdown">
                                 <% for i in 0..@board.lists.length + 1 -%>
-                                    <option value="<%= i -%>" class="dropdown-item" <% if (i == list.position) %> selected="selected" <% end %> ><%= i -%></option>
+                                    <option value="<%= i -%>" class="dropdown-item" <% if i == list.position -%> selected<% end -%> ><%= i -%></option>
                                 <% end %>
                               </select>
+                    <div class="col">
+                    <%= link_to "Delete List", list_path(list), method: :delete, data: {confirm: "Are you sure you want to delete this list?"}, class:"btn btn-info" -%>
+                    </div>
                 </div>
             <% end %>
         </div>
