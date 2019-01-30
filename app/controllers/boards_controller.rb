@@ -74,6 +74,7 @@ class BoardsController < ApplicationController
 
     def update
         if @board.update(board_params)
+            debugger
             flash[:success] = "Board updated successfully."
             redirect_to board_path(@board) and return
         else

@@ -37,9 +37,9 @@
                     <div class="form-check offset-2 col-sm-4">
                         <input type="text" class="form-control" value="<%= list.title -%>">
                     </div>
-                    Position: <select name="<%= list.title -%>_position" class="dropdown">
-                                <% for i in 0..@board.lists.length + 1 -%>
-                                    <option value="<%= i -%>" class="dropdown-item" <% if i == list.position -%> selected<% end -%> ><%= i -%></option>
+                    Position: <select name="<%= list.title -%>_position" class="select">
+                                <% for i in 0..@board.lists.length -%>
+                                    <option value="<%= i -%>" <% if i == list.position -%> selected<% end -%> ><%= i -%></option>
                                 <% end %>
                               </select>
                     <div class="col">

@@ -5,13 +5,14 @@
     </div>
 </div>
 <h4 align="center"> <%= @user.username -%>'s boards</h4>
-<div class="row offset-3 col">
-    <div class="center">
+<div class="row">
+    <div align="center" class="col">
         <% if @user.boards.length > 0 -%>
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>Board Name</th>
+                        <th>Lists</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -19,9 +20,17 @@
                     <% @user.boards.each do |board| -%>
                         <tr>
                             <td><%= board.title -%></td>
+                            <td>
+                                <% board.lists.each do |list| -%>
+                                    <%= list.title -%> | 
+                                <% end -%>
+                            </td>
                             <td><%= link_to "Show", board_path(board), class: "btn btn-primary" -%>
                                 <%= link_to "Edit", edit_board_path(board), class: "btn btn-info" -%>
                                 <%= link_to "Delete", board_path(board), method: :delete, data: {confirm: "Are you sure you want to delete this board and it's lists?"}, class: "btn btn-danger" -%>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                    Launch demo modal
+                                </button>
                             </td>
                         </tr>
                     <% end -%>
@@ -29,4 +38,32 @@
             </table>
         <% end -%>
     </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add List</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/add_list" method="post" class="form-horizontal">
+            <div class="form-group row">
+                <label class="form-label">Title</label>
+                <input type="text" name="title" class="form-control" placeholder="Enter list title">
+            </div>
+            <label class="form-label">Position:</label>
+            <select name="new_list_position" class="select">
+                <% for i in 0.. -%>
+            </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
